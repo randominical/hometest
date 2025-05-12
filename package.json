@@ -1,0 +1,12 @@
+{
+  "name": "hometest",
+  "version": "1.0.0",
+  "description": "Local WordPress Website",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "randominical",
+  "license": "ISC"
+}
