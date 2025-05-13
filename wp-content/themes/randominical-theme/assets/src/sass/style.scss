@@ -1,5 +1,5 @@
 @use "normalize.scss";
-@use "_vars.scss";
+@use 'variables/index' as variables;
 @use "_global.scss";
 @use "header.scss";
 @use "footer.scss";
