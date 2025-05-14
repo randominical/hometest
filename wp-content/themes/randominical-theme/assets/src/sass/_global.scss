@@ -1,0 +1,76 @@
+@use 'variables/_index' as variables;
+
+// For Mobile-First Design
+/*
+@mixin screen-min($min) {
+  @media (min-width: $min) {
+    @content;
+  }
+}
+
+// For Desktop-First Design
+@mixin screen-max($max) {
+  @media (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin placeholder-properties {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #6f6b88;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  cursor: pointer;
+}
+
+.container {
+}
+
+h1,
+h2,
+h3,
+h4 {
+}
+*/
+body {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 100%;
+  background: variables.$main-inky;
+  &.overflow-hidden {
+    overflow: hidden;
+  }
+}
+/*
+.wrapper {
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input[type="text"],
+input[type="submit"],
+select,
+textarea {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+  */
