@@ -1,45 +1,50 @@
 <?php
-/*mfp- is the unique prefix we use for this particular plugin*/
-/*
- * Add my new menu to the Admin Control Panel
- */
-// Hook the 'admin_menu' action hook, run the function named 'mfp_Add_My_Admin_Link()'
+/* mfp- is the unique prefix we use for this particular plugin */
+
+// Hook to add admin menu
 add_action( 'admin_menu', 'mfp_Add_My_Admin_Link' );
 
-// Add a new top level menu link to the ACP
-function mfp_Add_My_Admin_Link()
-{
+// Register settings
+add_action( 'admin_init', 'mfp_register_follow_us_links' );
+
+function mfp_register_follow_us_links() {
+    register_setting( 'mfp_follow_us_options', 'mfp_follow_us_twitter' );
+    register_setting( 'mfp_follow_us_options', 'mfp_follow_us_facebook' );
+}
+
+// Add top-level menu in admin
+function mfp_Add_My_Admin_Link() {
     add_menu_page(
-        'My First Page', // Title of the page
-        'My First Plugin', // Text to show on the menu link
-        'manage_options', // Capability requirement
-        'my-plugin-admin-page', // Menu slug (unique identifier)
-        'mfp_render_admin_page', // Function to display page content
-        'dashicons-admin-generic', // Optional: Icon
-        90 // Optional: Position in menu
+        'My First Page',             // Page title
+        'My First Plugin',           // Menu title
+        'manage_options',            // Capability
+        'my-plugin-admin-page',      // Menu slug
+        'mfp_render_admin_page',     // Function to display content
+        'dashicons-admin-generic',   // Icon
+        90                           // Position
     );
 }
 
-// This function will be called when the menu page is displayed
+// Render plugin settings page
 function mfp_render_admin_page() {
     include plugin_dir_path(__FILE__) . '/mfp-first-acp-page.php';
 }
 
-// Plugin function
-function wpb_follow_us($content) {
- 
-// Only do this when a single post is displayed
-if ( is_single() ) { 
- 
-// Message you want to display after the post
-// Add URLs to your own Twitter and Facebook profiles
- 
-$content .= '<p class="follow-us">If you liked this article, then please follow us on <a href="http://twitter.com/wpbeginner" title="WPBeginner on Twitter" target="_blank" rel="nofollow">Twitter</a> and <a href="https://www.facebook.com/wpbeginner" title="WPBeginner on Facebook" target="_blank" rel="nofollow">Facebook</a>.</p>';
- 
+// Append follow message on single posts
+add_filter( 'the_content', 'wpb_follow_us' );
+
+function wpb_follow_us( $content ) {
+    if ( is_single() ) {
+        $twitter = esc_url( get_option( 'mfp_follow_us_twitter', 'https://twitter.com/wpbeginner' ) );
+        $facebook = esc_url( get_option( 'mfp_follow_us_facebook', 'https://facebook.com/wpbeginner' ) );
+
+        $message = 'If you liked this article, then please follow us on 
+            <a href="' . $twitter . '" target="_blank" rel="nofollow">Twitter</a> 
+            and 
+            <a href="' . $facebook . '" target="_blank" rel="nofollow">Facebook</a>.';
+
+        $content .= '<p class="follow-us">' . $message . '</p>';
+    }
+
+    return $content;
 }
-// Return the content
-return $content; 
- 
-}
-// Hook our function to WordPress the_content filter
-add_filter('the_content', 'wpb_follow_us'); 
