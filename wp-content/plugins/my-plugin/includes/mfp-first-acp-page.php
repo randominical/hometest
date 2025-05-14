@@ -1,5 +1,5 @@
 <div class="wrap">
-    <h1>Follow Us Settings</h1>
+    <h1>My First Plugin</h1>
     <form method="post" action="options.php">
         <?php
         settings_fields( 'mfp_follow_us_options' );
