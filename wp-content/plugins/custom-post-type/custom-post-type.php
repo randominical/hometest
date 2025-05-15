@@ -9,25 +9,5 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
-add_action( 'init', 'cpt_register_custom_post_type' );
-function cpt_register_custom_post_type() {
-     $args = array(
-        'labels' => array(
-            'name'          => 'Custom Post Type',
-            'singular_name' => 'Custom Post',
-            'menu_name'     => 'Custom Posts',
-            'add_new'       => 'Add New Custom Post',
-            'add_new_item'  => 'Add New Custom Post',
-            'new_item'      => 'New Custom Post',
-            'edit_item'     => 'Edit Custom Post',
-            'view_item'     => 'View Custom Post',
-            'all_items'     => 'All Custom Posts',
-        ),
-        'public' => true,
-        'has_archive' => true,
-        'show_in_rest' => true,
-        'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
-    );
-
-    register_post_type( 'cpt', $args );
-}
+// Load CPT registration
+require_once plugin_dir_path( __FILE__ ) . 'includes/post-types.php';
