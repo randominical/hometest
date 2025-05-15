@@ -3,9 +3,9 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
-add_action( 'init', 'cpt_register_custom_post_type' );
+add_action( 'init', 'cptr_register_custom_post_type' );
 
-function cpt_register_custom_post_type() {
+function cptr_register_custom_post_type() {
      $labels = array(
         'name'          => 'Custom Post Types',
         'singular_name' => 'Custom Post',
@@ -27,5 +27,5 @@ function cpt_register_custom_post_type() {
         'rewrite' => array( 'slug' => 'custom-posts' ),
     );
 
-    register_post_type( 'cpt', $args );
+    register_post_type( 'cptr', $args );
 }

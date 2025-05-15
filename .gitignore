@@ -42,8 +42,8 @@ wp-config.php
 /wp-content/plugins/*
 !/wp-content/plugins/my-plugin/
 !/wp-content/plugins/my-plugin/**/*
-!/wp-content/plugins/custom-post-type/
-!/wp-content/plugins/custom-post-type/**/*
+!/wp-content/plugins/custom-post-type-by-randominical/
+!/wp-content/plugins/custom-post-type-by-randominical/**/*
 
 # All themes
 #

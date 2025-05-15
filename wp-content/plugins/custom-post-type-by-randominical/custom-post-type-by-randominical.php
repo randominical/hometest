@@ -1,8 +1,9 @@
 <?php
 /**
- * Plugin Name: Custom Post Type
+ * Plugin Name: Custom Post Type by randominical
  * Description: A plugin to manage Custom Posts
  * Version: 1.0
+ * Author: randominical
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
