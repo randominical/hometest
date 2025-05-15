@@ -24,7 +24,7 @@ get_header();
 					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'randominical_theme' ) . '</span> <span class="nav-title">%title</span>',
 				)
 			);
-				<img src="assets/images/images.webp" alt="" style="width: 100%; height: auto;">
+				
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
